@@ -3,6 +3,7 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import { createStore, combineReducers } from "redux";
 import { Provider } from "react-redux";
+import { NavigationContainer } from '@react-navigation/native';
 
 import bookingsReducer from "./store/reducers/bookings";
 import WaitlistNavigator from "./navigation/WaitlistNavigator";
@@ -15,9 +16,11 @@ const store = createStore(rootReducer);
 
 export default function App() {
   return (
-    <Provider store={store}>
-      <WaitlistNavigator />
-    </Provider>
+    <NavigationContainer>
+      <Provider store={store}>
+        <WaitlistNavigator />
+      </Provider>
+    </NavigationContainer>
   );
 }
 
